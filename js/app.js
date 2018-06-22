@@ -67,6 +67,11 @@ initiateGame();
  var allCards = document.querySelectorAll('.card');
  //Array to hold cards that are open. Initially empty.
  var openCards = [];
+//moves counter - begins at 0
+ var moves = 0;
+//selects the moves counter in index.html
+ var movesCounter = document.querySelector('.moves');
+
  //event listner for clicks on cards
  allCards.forEach(function(card) {
    card.addEventListener('click', function(e) {
@@ -101,6 +106,8 @@ initiateGame();
              openCards = [];
            }, 1000);
          }
+         moves += 1;
+         movesCounter.innerText = moves;
        }
      }
    });
