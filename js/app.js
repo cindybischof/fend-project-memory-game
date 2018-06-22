@@ -12,7 +12,7 @@ var cards = ['fa-diamond', 'fa-diamond',
               'fa-bomb', 'fa-bomb'];
 
 //template literal used in a function that generates the cards programatically
-function generateCards(card) {
+function generateCard(card) {
     return `<li class="card"><i class="fa ${card}"></i></li>`;
 }
 
@@ -49,14 +49,19 @@ function shuffle(array) {
  *    + increment the move counter and display it on the page (put this functionality in another function that you call from this one)
  *    + if all cards have matched, display a message with the final score (put this functionality in another function that you call from this one)
  */
+
+ //function to initiate the game
 function initiateGame() {
+  //stores the unorderd list with the class .deck from the HTML file, where we will put cards
+  var deck = document.querySelector('.deck');
   var cardHTML = cards.map(function(card) {
-    return generateCards(card);
+    //calls generateCard function for each card
+    return generateCard(card);
   });
-  console.log(cardHTML);
+  deck.innerHTML = cardHTML.join('');
 }
 
-//initiateGame();
+initiateGame();
 
  //variable hold all cards
  var allCards = document.querySelectorAll('.card');
