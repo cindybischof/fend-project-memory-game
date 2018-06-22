@@ -7,10 +7,9 @@ var cards = ['fa-diamond', 'fa-diamond',
               'fa-anchor', 'fa-anchor',
               'fa-bolt', 'fa-bolt',
               'fa-cube', 'fa-cube',
-              'fa-leaf' 'fa-leaf',
+              'fa-leaf', 'fa-leaf',
               'fa-bicycle', 'fa-bicycle',
               'fa-bomb', 'fa-bomb'];
-            ];
 
 //template literal used in a function that generates the cards programatically
 function generateCards(card) {
@@ -51,7 +50,10 @@ function shuffle(array) {
  *    + if all cards have matched, display a message with the final score (put this functionality in another function that you call from this one)
  */
 function initiateGame() {
-
+  var cardHTML = cards.map(function(card) {
+    return generateCards(card);
+  });
+  console.log(cardHTML);
 }
 
 //initiateGame();
