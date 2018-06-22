@@ -1,7 +1,16 @@
 /*
  * Create a list that holds all of your cards
+ * An array holds all of the cards
  */
-
+var cards = ['fa-diamond', 'fa-diamond',
+              'fa-paper-plane-o', 'fa-paper-plane-o',
+              'fa-anchor', 'fa-anchor',
+              'fa-bolt', 'fa-bolt',
+              'fa-cube', 'fa-cube',
+              'fa-leaf' 'fa-leaf',
+              'fa-bicycle', 'fa-bicycle',
+              'fa-bomb', 'fa-bomb'];
+            ];
 
 /*
  * Display the cards on the page
@@ -36,6 +45,12 @@ function shuffle(array) {
  *    + increment the move counter and display it on the page (put this functionality in another function that you call from this one)
  *    + if all cards have matched, display a message with the final score (put this functionality in another function that you call from this one)
  */
+function initiateGame() {
+
+}
+
+//initiateGame();
+
  //variable hold all cards
  var allCards = document.querySelectorAll('.card');
  //Array to hold cards that are open. Initially empty.
@@ -44,6 +59,7 @@ function shuffle(array) {
  //event listner for clicks on cards
  allCards.forEach(function(card) {
    card.addEventListener('click', function(e) {
+    //disables ability to click on a matched card or the same card twice
      if(!card.classList.contains('open') && !card.classList.contains('show') && !card.classList.contains('match')) {
          //when a card is clicked, the card gets added to the openCards array
          openCards.push(card);
