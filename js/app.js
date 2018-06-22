@@ -44,20 +44,22 @@ function shuffle(array) {
  //event listner for clicks on cards
  allCards.forEach(function(card) {
    card.addEventListener('click', function(e) {
-     //when a card is clicked, the card gets added to the openCards array
-     openCards.push(card);
-     //adds .open and .show classes when card is clicked
-     card.classList.add('open', 'show');
-     console.log('Open Cards:', openCards.length);
-     //if 2 or more cards are showing, hide the cards again
-     if (openCards.length == 2) {
-       setTimeout(function() {
-         openCards.forEach(function(card) {
-           card.classList.remove('open', 'show');
-         });
+     if(!card.classList.contains('open') && !card.classList.contains('show') && !card.classList.contains('match')) {
+         //when a card is clicked, the card gets added to the openCards array
+         openCards.push(card);
+         //adds .open and .show classes when card is clicked
+         card.classList.add('open', 'show');
+         console.log('Open Cards:', openCards.length);
+         //if 2 or more cards are showing, hide the cards again
+         if (openCards.length == 2) {
+           setTimeout(function() {
+             openCards.forEach(function(card) {
+               card.classList.remove('open', 'show');
+             });
 
-         openCards = [];
-       }, 1000);
+             openCards = [];
+           }, 1000);
+         }
      }
    });
  });
