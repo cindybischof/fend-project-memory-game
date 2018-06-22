@@ -12,6 +12,11 @@ var cards = ['fa-diamond', 'fa-diamond',
               'fa-bomb', 'fa-bomb'];
             ];
 
+//template literal used in a function that generates the cards programatically
+function generateCards(card) {
+    return `<li class="card"><i class="fa ${card}"></i></li>`;
+}
+
 /*
  * Display the cards on the page
  *   - shuffle the list of cards using the provided "shuffle" method below
