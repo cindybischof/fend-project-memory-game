@@ -13,7 +13,7 @@ var cards = ['fa-diamond', 'fa-diamond',
 
 //template literal used in a function that generates the cards programatically
 function generateCard(card) {
-    return `<li class="card"><i class="fa ${card}"></i></li>`;
+    return `<li class="card" data-card="${card}"><i class="fa ${card}"></i></li>`;
 }
 
 /*
@@ -54,7 +54,7 @@ function shuffle(array) {
 function initiateGame() {
   //stores the unorderd list with the class .deck from the HTML file, where we will put cards
   var deck = document.querySelector('.deck');
-  var cardHTML = cards.map(function(card) {
+  var cardHTML = shuffle(cards).map(function(card) {
     //calls generateCard function for each card
     return generateCard(card);
   });
@@ -67,19 +67,32 @@ initiateGame();
  var allCards = document.querySelectorAll('.card');
  //Array to hold cards that are open. Initially empty.
  var openCards = [];
-
  //event listner for clicks on cards
  allCards.forEach(function(card) {
    card.addEventListener('click', function(e) {
     //disables ability to click on a matched card or the same card twice
-     if(!card.classList.contains('open') && !card.classList.contains('show') && !card.classList.contains('match')) {
+     if (!card.classList.contains('open') && !card.classList.contains('show') && !card.classList.contains('match')) {
          //when a card is clicked, the card gets added to the openCards array
          openCards.push(card);
          //adds .open and .show classes when card is clicked
          card.classList.add('open', 'show');
-         console.log('Open Cards:', openCards.length);
-         //if 2 or more cards are showing, hide the cards again
+
+         //if 2 or more cards are showing, see if they are a match or not
+         //since the array gets cleared out each time, there will only be 2 cards in the array at a time
          if (openCards.length == 2) {
+           //if the cards match, add the .match, .open & .show classes
+           if (openCards[0].dataset.card == openCards[1].dataset.card) {
+               openCards[0].classList.add('match');
+               openCards[0].classList.add('open');
+               openCards[0].classList.add('show');
+
+               openCards[1].classList.add('match');
+               openCards[1].classList.add('open');
+               openCards[1].classList.add('show');
+
+               openCards = [];
+           } else {
+          //if it's not a match, hide the cards again
            setTimeout(function() {
              openCards.forEach(function(card) {
                card.classList.remove('open', 'show');
@@ -88,6 +101,7 @@ initiateGame();
              openCards = [];
            }, 1000);
          }
+       }
      }
    });
  });
