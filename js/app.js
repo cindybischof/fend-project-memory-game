@@ -71,6 +71,14 @@ initiateGame();
  var moves = 0;
 //selects the moves counter in index.html
  var movesCounter = document.querySelector('.moves');
+//selects the restart game "fa-repeat" icon
+ var restartGame = document.querySelector('.fa-repeat');
+
+//event listener for restart game button
+restartGame.addEventListener('click', function(e) {
+  initiateGame();
+  console.log('Reinitiate game');
+});
 
  //event listner for clicks on cards
  allCards.forEach(function(card) {
