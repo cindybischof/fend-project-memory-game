@@ -80,6 +80,15 @@ restartGame.addEventListener('click', function(e) {
   console.log('Reinitiate game');
 });
 
+//function to check how many moves have been made & change star rating
+function starRating() {
+  let stars = document.querySelector('.stars');
+  if (moves === 10) {
+    let li = document.querySelector('li:last-child');
+    stars.removeChild(li);
+  }
+}
+
  //event listner for clicks on cards
  allCards.forEach(function(card) {
    card.addEventListener('click', function(e) {
@@ -118,5 +127,6 @@ restartGame.addEventListener('click', function(e) {
          movesCounter.innerText = moves;
        }
      }
+     starRating();
    });
  });
