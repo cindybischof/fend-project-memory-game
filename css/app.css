@@ -103,6 +103,12 @@ h1 {
     display: inline-block;
 }
 
+.score-panel .stopwatch {
+    display: inline-block;
+    margin-left: 60px;
+    margin-right: 5px;
+}
+
 .score-panel .restart {
     float: right;
     cursor: pointer;
