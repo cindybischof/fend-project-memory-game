@@ -82,10 +82,18 @@ restartGame.addEventListener('click', function(e) {
 
 //function to check how many moves have been made & change star rating
 function starRating() {
-  let stars = document.querySelector('.stars');
+  const three = document.querySelector('.three');
+  const two = document.querySelector('.two');
+  const one = document.querySelector('.one');
   if (moves === 10) {
-    let li = document.querySelector('li:last-child');
-    stars.removeChild(li);
+    three.style.display = 'none';
+    console.log('moves = 10');
+  } else if (moves === 15) {
+    two.style.display = 'none';
+    console.log('moves = 15')
+  } else if (moves === 20) {
+    one.style.display = 'none';
+    console.log('moves = 20')
   }
 }
 
@@ -119,14 +127,13 @@ function starRating() {
              openCards.forEach(function(card) {
                card.classList.remove('open', 'show');
              });
-
              openCards = [];
            }, 1000);
          }
          moves += 1;
          movesCounter.innerText = moves;
        }
+      starRating();
      }
-     starRating();
    });
  });
