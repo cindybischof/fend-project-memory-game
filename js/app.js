@@ -59,6 +59,7 @@ function initiateGame() {
     return generateCard(card);
   });
   deck.innerHTML = cardHTML.join('');
+  gameStopwatch();
 }
 
 initiateGame();
@@ -73,6 +74,33 @@ initiateGame();
  var movesCounter = document.querySelector('.moves');
 //selects the restart game "fa-repeat" icon
  var restartGame = document.querySelector('.fa-repeat');
+ //variable for timer to keep track of elapsed milliseconds
+ let counter = 0;
+ //initially sets minutes on game timer to 0
+ let timerMinutes = 0;
+ //initially sets seconds on game timer to 0
+ let timerSeconds = 0;
+ //selects minutes section of HTML stopwatch
+ let displayMinutes = document.querySelector('.minutes');
+ //selects seconds section of HTML stopwatch
+ let displaySeconds = document.querySelector('.seconds');
+
+ //game stopwatch function
+ function gameStopwatch() {
+    clearInterval(interval);
+    var interval = setInterval(function() {
+      counter++;
+      var s = counter;
+      convertSeconds(Math.floor(s));
+    }, 1000);
+ }
+
+ function convertSeconds(s) {
+   var minutes = Math.floor(((s % 864000) % 3600) / 60);
+   var seconds = ((s % 86400) % 3600) % 60;
+   displayMinutes.innerHTML = minutes;
+   displaySeconds.innerHTML = seconds;
+ }
 
 //event listener for restart game button
 restartGame.addEventListener('click', function(e) {
