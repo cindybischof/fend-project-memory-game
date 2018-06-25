@@ -76,10 +76,6 @@ initiateGame();
  var restartGame = document.querySelector('.fa-repeat');
  //variable for timer to keep track of elapsed milliseconds
  let counter = 0;
- //initially sets minutes on game timer to 0
- let timerMinutes = 0;
- //initially sets seconds on game timer to 0
- let timerSeconds = 0;
  //selects minutes section of HTML stopwatch
  let displayMinutes = document.querySelector('.minutes');
  //selects seconds section of HTML stopwatch
