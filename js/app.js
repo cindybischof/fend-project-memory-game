@@ -95,7 +95,11 @@ initiateGame();
    var minutes = Math.floor(((s % 864000) % 3600) / 60);
    var seconds = ((s % 86400) % 3600) % 60;
    displayMinutes.innerHTML = minutes;
-   displaySeconds.innerHTML = seconds;
+   if(seconds < 10) {
+      displaySeconds.innerHTML = "0" + seconds;
+ } else {
+      displaySeconds.innerHTML = seconds;
+    }
  }
 
 //event listener for restart game button
