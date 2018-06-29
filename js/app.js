@@ -64,6 +64,7 @@ function initiateGame() {
 
 initiateGame();
 
+// ***** Global Scope Variables ***** //
  //variable hold all cards
  var allCards = document.querySelectorAll('.card');
  //Array to hold cards that are open. Initially empty.
@@ -74,12 +75,23 @@ initiateGame();
  var movesCounter = document.querySelector('.moves');
 //selects the restart game "fa-repeat" icon
  var restartGame = document.querySelector('.fa-repeat');
- //variable for timer to keep track of elapsed milliseconds
- let counter = 0;
  //selects minutes section of HTML stopwatch
  let displayMinutes = document.querySelector('.minutes');
  //selects seconds section of HTML stopwatch
  let displaySeconds = document.querySelector('.seconds');
+ //variable for timer to keep track of elapsed milliseconds
+ let counter = 0;
+ //variable to track matched cards to evaluate if game has been won
+ let matched = 0;
+ //need 8 pairs to win the gameStopwatch
+ const winningPairs = 8;
+
+ //event listener for restart game button
+ restartGame.addEventListener('click', function(e) {
+   //document.querySelectorAll('li.card').classList.remove('open');
+   initiateGame();
+   console.log('Reinitiate game');
+ });
 
  //game stopwatch function
  function gameStopwatch() {
@@ -91,6 +103,7 @@ initiateGame();
     }, 1000);
  }
 
+//converts milliseconds to seconds and minutes to be displayed
  function convertSeconds(s) {
    var minutes = Math.floor(((s % 864000) % 3600) / 60);
    var seconds = ((s % 86400) % 3600) % 60;
@@ -101,12 +114,6 @@ initiateGame();
       displaySeconds.innerHTML = seconds;
     }
  }
-
-//event listener for restart game button
-restartGame.addEventListener('click', function(e) {
-  initiateGame();
-  console.log('Reinitiate game');
-});
 
 //function to check how many moves have been made & change star rating
 function starRating() {
@@ -149,6 +156,11 @@ function starRating() {
                openCards[1].classList.add('show');
 
                openCards = [];
+               //Adds 1 to matched variable for each pair of matched cards
+               matched++;
+               if (matched === winningPairs) {
+                 console.log("Game over!");
+               }
            } else {
           //if it's not a match, hide the cards again
            setTimeout(function() {
