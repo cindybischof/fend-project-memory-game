@@ -184,8 +184,15 @@ function starRating() {
  });
 
 function finalStats() {
+  const officialTime = document.querySelector('.official-time');
   const officialMoves = document.querySelector('.official-moves');
-  officialMoves.innerHTML = `Moves = ${moves}`;
+  const officialStars = document.querySelector('.official-stars');
+  const officialMinutes = document.querySelector('.minutes').innerHTML;
+  const officialSeconds = document.querySelector('.seconds').innerHTML;
+
+  officialTime.innerHTML = `Time: ${officialMinutes}:${officialSeconds}`;
+  officialMoves.innerHTML = `Moves: ${moves}`;
+  officialStars.innerHTML = `Stars:`;
 
   //displays modal window
   modal.style.display = "block";
