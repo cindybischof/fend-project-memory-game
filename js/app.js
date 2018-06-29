@@ -189,10 +189,22 @@ function finalStats() {
   const officialStars = document.querySelector('.official-stars');
   const officialMinutes = document.querySelector('.minutes').innerHTML;
   const officialSeconds = document.querySelector('.seconds').innerHTML;
+  const stars = starCount();
 
   officialTime.innerHTML = `Time: ${officialMinutes}:${officialSeconds}`;
   officialMoves.innerHTML = `Moves: ${moves}`;
-  officialStars.innerHTML = `Stars:`;
+
+  function starCount() {
+    findStars = document.querySelectorAll('.stars li');
+    finalStars = 0;
+    for (findStar of findStars) {
+      if (findStar.style.display !== 'none') {
+        finalStars++;
+        officialStars.innerHTML = `Stars: ${finalStars}`;
+        console.log(finalStars);
+      }
+    }
+  }
 
   //displays modal window
   modal.style.display = "block";
