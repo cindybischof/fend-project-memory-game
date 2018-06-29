@@ -85,6 +85,8 @@ initiateGame();
  let matched = 0;
  //need 8 pairs to win the gameStopwatch
  const winningPairs = 8;
+ //selects modal window
+ let modal = document.querySelector('.modal');
 
  //event listener for restart game button
  restartGame.addEventListener('click', function(e) {
@@ -160,6 +162,8 @@ function starRating() {
                matched++;
                if (matched === winningPairs) {
                  console.log("Game over!");
+                 //displays modal window
+                 modal.style.display = "block";
                }
            } else {
           //if it's not a match, hide the cards again
