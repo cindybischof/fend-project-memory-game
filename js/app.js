@@ -65,28 +65,32 @@ function initiateGame() {
 initiateGame();
 
 // ***** Global Scope Variables ***** //
- //variable hold all cards
- var allCards = document.querySelectorAll('.card');
- //Array to hold cards that are open. Initially empty.
- var openCards = [];
+//variable hold all cards
+var allCards = document.querySelectorAll('.card');
+//Array to hold cards that are open. Initially empty.
+var openCards = [];
 //moves counter - begins at 0
- var moves = 0;
+var moves = 0;
 //selects the moves counter in index.html
- var movesCounter = document.querySelector('.moves');
+var movesCounter = document.querySelector('.moves');
 //selects the restart game "fa-repeat" icon
- var restartGame = document.querySelector('.fa-repeat');
- //selects minutes section of HTML stopwatch
- let displayMinutes = document.querySelector('.minutes');
- //selects seconds section of HTML stopwatch
- let displaySeconds = document.querySelector('.seconds');
- //variable for timer to keep track of elapsed milliseconds
- let counter = 0;
- //variable to track matched cards to evaluate if game has been won
- let matched = 0;
- //need 8 pairs to win the gameStopwatch
- const winningPairs = 1;
- //selects modal window
- const modal = document.querySelector('.modal');
+var restartGame = document.querySelector('.fa-repeat');
+//selects minutes section of HTML stopwatch
+let displayMinutes = document.querySelector('.minutes');
+//selects seconds section of HTML stopwatch
+let displaySeconds = document.querySelector('.seconds');
+//variable for timer to keep track of elapsed milliseconds
+let counter = 0;
+//variable to track matched cards to evaluate if game has been won
+let matched = 0;
+//need 8 pairs to win the gameStopwatch
+const winningPairs = 1;
+//selects modal window
+const modal = document.querySelector('.modal');
+//selects the yes button
+const yesButton = document.querySelector('.play-again');
+//selects the no button
+const noButton = document.querySelector('.no-play-again');
 
  //event listener for restart game button
  restartGame.addEventListener('click', function(e) {
@@ -209,3 +213,15 @@ function finalStats() {
   //displays modal window
   modal.style.display = "block";
 }
+
+//event listener for play again button
+yesButton.addEventListener('click', function(e) {
+  modal.style.display = 'none';
+  initiateGame();
+  console.log('Reinitiate game');
+});
+
+//event listener for don't play again button
+noButton.addEventListener('click', function(e) {
+  modal.style.display = 'none';
+});
