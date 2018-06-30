@@ -94,7 +94,10 @@ const noButton = document.querySelector('.no-play-again');
 
  //event listener for restart game button
  restartGame.addEventListener('click', function(e) {
-   //document.querySelectorAll('li.card').classList.remove('open');
+   //removes any open, show or match classes from cards
+   allCards.forEach(function(card) {
+     card.classList.remove('open', 'show', 'match');
+   });
    initiateGame();
    console.log('Reinitiate game');
  });
