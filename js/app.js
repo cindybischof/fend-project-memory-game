@@ -66,15 +66,15 @@ initiateGame();
 
 // ***** Global Scope Variables ***** //
 //variable hold all cards
-var allCards = document.querySelectorAll('.card');
+const allCards = document.querySelectorAll('.card');
 //Array to hold cards that are open. Initially empty.
-var openCards = [];
+let openCards = [];
 //moves counter - begins at 0
-var moves = 0;
+let moves = 0;
 //selects the moves counter in index.html
-var movesCounter = document.querySelector('.moves');
+let movesCounter = document.querySelector('.moves');
 //selects the restart game "fa-repeat" icon
-var restartGame = document.querySelector('.fa-repeat');
+let restartGame = document.querySelector('.fa-repeat');
 //selects minutes section of HTML stopwatch
 let displayMinutes = document.querySelector('.minutes');
 //selects seconds section of HTML stopwatch
