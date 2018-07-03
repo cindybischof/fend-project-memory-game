@@ -2,7 +2,7 @@
  * Create a list that holds all of your cards
  * An array holds all of the cards
  */
-var cards = ['fa-diamond', 'fa-diamond',
+let cards = ['fa-diamond', 'fa-diamond',
               'fa-paper-plane-o', 'fa-paper-plane-o',
               'fa-anchor', 'fa-anchor',
               'fa-bolt', 'fa-bolt',
@@ -25,7 +25,7 @@ function generateCard(card) {
 
 // Shuffle function from http://stackoverflow.com/a/2450976
 function shuffle(array) {
-    var currentIndex = array.length, temporaryValue, randomIndex;
+    let currentIndex = array.length, temporaryValue, randomIndex;
 
     while (currentIndex !== 0) {
         randomIndex = Math.floor(Math.random() * currentIndex);
@@ -59,14 +59,14 @@ function initiateGame() {
     return generateCard(card);
   });
   deck.innerHTML = cardHTML.join('');
-  gameStopwatch();
 }
 
 initiateGame();
+gameStopwatch();
 
 // ***** Global Scope Variables ***** //
 //variable hold all cards
-const allCards = document.querySelectorAll('.card');
+let allCards = document.querySelectorAll('.card');
 //Array to hold cards that are open. Initially empty.
 let openCards = [];
 //moves counter - begins at 0
