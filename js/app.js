@@ -80,7 +80,7 @@ let displayMinutes = document.querySelector('.minutes');
 //selects seconds section of HTML stopwatch
 let displaySeconds = document.querySelector('.seconds');
 //variable for timer to keep track of elapsed milliseconds
-let counter = 0;
+let milliseconds = 0;
 //variable to track matched cards to evaluate if game has been won
 let matched = 0;
 //need 8 pairs to win the gameStopwatch
@@ -104,18 +104,18 @@ const noButton = document.querySelector('.no-play-again');
 
  //game stopwatch function
  function gameStopwatch() {
-    clearInterval(interval);
+    //clearInterval(interval); Supposed to reset stopwatch, but not doing anything
+    //setInterval evaluates an expression at specified intervals (every 1000 milliseconds/1 second here)
     var interval = setInterval(function() {
-      counter++;
-      var s = counter;
-      convertSeconds(Math.floor(s));
+      milliseconds++;
+      convertSeconds(Math.floor(milliseconds));
     }, 1000);
  }
 
 //converts milliseconds to seconds and minutes to be displayed
- function convertSeconds(s) {
-   var minutes = Math.floor(((s % 864000) % 3600) / 60);
-   var seconds = ((s % 86400) % 3600) % 60;
+ function convertSeconds(milliseconds) {
+   let minutes = Math.floor(((milliseconds % 864000) % 3600) / 60);
+   let seconds = ((milliseconds % 86400) % 3600) % 60;
    displayMinutes.innerHTML = minutes;
    if(seconds < 10) {
       displaySeconds.innerHTML = "0" + seconds;
