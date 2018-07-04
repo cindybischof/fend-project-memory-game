@@ -226,6 +226,9 @@ yesButton.addEventListener('click', function(e) {
   movesCounter.innerText = moves;
   //moves matched cards tracker back to 0
   matched = 0;
+  //resets game stopwatch
+  milliseconds=0;
+  gameStopwatch();
   console.log('Reinitiate game');
 });
 
