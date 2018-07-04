@@ -15,6 +15,13 @@ function generateCard(card) {
     return `<li class="card" data-card="${card}"><i class="fa ${card}"></i></li>`;
 }
 
+/*
+ * Display the cards on the page
+ *   - shuffle the list of cards using the provided "shuffle" method below
+ *   - loop through each card and create its HTML
+ *   - add each card's HTML to the page
+ */
+
 // Shuffle function from http://stackoverflow.com/a/2450976
 function shuffle(array) {
     let currentIndex = array.length, temporaryValue, randomIndex;
@@ -30,11 +37,23 @@ function shuffle(array) {
     return array;
 }
 
+
+/*
+ * set up the event listener for a card. If a card is clicked:
+ *  - display the card's symbol (put this functionality in another function that you call from this one)
+ *  - add the card to a *list* of "open" cards (put this functionality in another function that you call from this one)
+ *  - if the list already has another card, check to see if the two cards match
+ *    + if the cards do match, lock the cards in the open position (put this functionality in another function that you call from this one)
+ *    + if the cards do not match, remove the cards from the list and hide the card's symbol (put this functionality in another function that you call from this one)
+ *    + increment the move counter and display it on the page (put this functionality in another function that you call from this one)
+ *    + if all cards have matched, display a message with the final score (put this functionality in another function that you call from this one)
+ */
+
  //function to initiate the game
 function initiateGame() {
   //stores the unorderd list with the class .deck from the HTML file, where we will put cards
-  var deck = document.querySelector('.deck');
-  var cardHTML = shuffle(cards).map(function(card) {
+  let deck = document.querySelector('.deck');
+  let cardHTML = shuffle(cards).map(function(card) {
     //calls generateCard function for each card
     return generateCard(card);
   });
@@ -45,6 +64,8 @@ initiateGame();
 gameStopwatch();
 
 // ***** Global Scope Variables ***** //
+
+
 //variable hold all cards
 let allCards = document.querySelectorAll('.card');
 //Array to hold cards that are open. Initially empty.
@@ -122,14 +143,17 @@ function starRating() {
 }
 
  //event listner for clicks on cards
- allCards.forEach(function(card) {
-   card.addEventListener('click', function(e) {
+ let deck = document.querySelector('.deck');
+
+deck.addEventListener('click', event => {
+  const clickTarget = event.target;
+  if(clickTarget.classList.contains('card')) {
     //disables ability to click on a matched card or the same card twice
-     if (!card.classList.contains('open') && !card.classList.contains('show') && !card.classList.contains('match')) {
+     if (!clickTarget.classList.contains('open') && !clickTarget.classList.contains('show') && !clickTarget.classList.contains('match')) {
          //when a card is clicked, the card gets added to the openCards array
-         openCards.push(card);
+         openCards.push(clickTarget);
          //adds .open and .show classes when card is clicked
-         card.classList.add('open', 'show');
+         clickTarget.classList.add('open', 'show');
 
          //if 2 or more cards are showing, see if they are a match or not
          //since the array gets cleared out each time, there will only be 2 cards in the array at a time
@@ -167,8 +191,8 @@ function starRating() {
        }
       starRating();
      }
-   });
- });
+   }
+});
 
 function finalStats() {
   const officialTime = document.querySelector('.official-time');
