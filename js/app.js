@@ -38,17 +38,6 @@ function shuffle(array) {
 }
 
 
-/*
- * set up the event listener for a card. If a card is clicked:
- *  - display the card's symbol (put this functionality in another function that you call from this one)
- *  - add the card to a *list* of "open" cards (put this functionality in another function that you call from this one)
- *  - if the list already has another card, check to see if the two cards match
- *    + if the cards do match, lock the cards in the open position (put this functionality in another function that you call from this one)
- *    + if the cards do not match, remove the cards from the list and hide the card's symbol (put this functionality in another function that you call from this one)
- *    + increment the move counter and display it on the page (put this functionality in another function that you call from this one)
- *    + if all cards have matched, display a message with the final score (put this functionality in another function that you call from this one)
- */
-
  //function to initiate the game
 function initiateGame() {
   //stores the unorderd list with the class .deck from the HTML file, where we will put cards
@@ -92,6 +81,8 @@ const modal = document.querySelector('.modal');
 const yesButton = document.querySelector('.play-again');
 //selects the no button
 const noButton = document.querySelector('.no-play-again');
+//for gameStopwatch
+var interval;
 
  //event listener for restart game button
  restartGame.addEventListener('click', function(e) {
@@ -112,7 +103,7 @@ const noButton = document.querySelector('.no-play-again');
  function gameStopwatch() {
     //clearInterval(interval); Supposed to reset stopwatch, but not doing anything
     //setInterval evaluates an expression at specified intervals (every 1000 milliseconds/1 second here)
-      var interval = setInterval(function() {
+      interval = setInterval(function() {
       milliseconds++;
       convertSeconds(Math.floor(milliseconds));
     }, 1000);
@@ -179,6 +170,7 @@ deck.addEventListener('click', event => {
                if (matched === winningPairs) {
                  console.log("Game over!");
                  moves += 1;
+                 clearInterval(interval);
                  //writes final game stats to the modal window
                  finalStats();
                }
