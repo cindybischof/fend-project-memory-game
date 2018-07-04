@@ -1,20 +1,18 @@
 # Memory Game Project
+This is a classic memory game that started with Udacity course code. The game keeps track of time played, the number of moves and gives the player a rating based on performance. The game also includes a reset button to restart the game and a modal window notifying the player that they have one the game and gives them the option to stop or play again.
 
 ## Table of Contents
 
-* [Instructions](#instructions)
+* [Installation](#instructions)
+* [Usage](#usage)
 * [Contributing](#contributing)
 
-## Instructions
+## Installation
 
-The starter project has some HTML and CSS styling to display a static version of the Memory Game project. You'll need to convert this project from a static project to an interactive one. This will require modifying the HTML and CSS files, but primarily the JavaScript file.
+Clone the GitHub repository. There are no dependences. This web app will run on any browser.
 
-To get started, open `js/app.js` and start building out the app's functionality
-
-For specific, detailed instructions, look at the project instructions in the [Udacity Classroom](https://classroom.udacity.com/me).
+## Usage
+Play the game on any web browser.
 
 ## Contributing
-
-This repository is the starter code for _all_ Udacity students. Therefore, we most likely will not accept pull requests.
-
-For details, check out [CONTRIBUTING.md](CONTRIBUTING.md).
+Please see the CONTRIBUTING.md.
