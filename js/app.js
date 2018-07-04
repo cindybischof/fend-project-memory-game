@@ -188,10 +188,10 @@ deck.addEventListener('click', event => {
              openCards.forEach(function(card) {
                card.classList.remove('open', 'show');
              });
-             moves += 1;
              openCards = [];
            }, 1000);
          }
+         moves += 1;
          movesCounter.innerText = moves;
        }
       starRating();
