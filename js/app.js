@@ -104,6 +104,8 @@ const noButton = document.querySelector('.no-play-again');
    //resets # of moves when reset button is clicked
    moves = 0;
    movesCounter.innerText = moves;
+   //moves matched cards tracker back to 0
+   matched = 0;
  });
 
  //game stopwatch function
@@ -228,6 +230,10 @@ function finalStats() {
 yesButton.addEventListener('click', function(e) {
   modal.style.display = 'none';
   initiateGame();
+  moves = 0;
+  movesCounter.innerText = moves;
+  //moves matched cards tracker back to 0
+  matched = 0;
   console.log('Reinitiate game');
 });
 
