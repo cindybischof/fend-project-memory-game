@@ -101,6 +101,9 @@ const noButton = document.querySelector('.no-play-again');
    });
    initiateGame();
    console.log('Reinitiate game');
+   //resets # of moves when reset button is clicked
+   moves = 0;
+   movesCounter.innerText = moves;
  });
 
  //game stopwatch function
