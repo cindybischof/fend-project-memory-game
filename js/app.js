@@ -1,5 +1,5 @@
 
-
+//generateCard function from Memory Game with Mike Wales https://www.youtube.com/watch?v=_rUH-sEs68Y
 //An array holds all of the cards
 let cards = ['fa-diamond', 'fa-diamond',
               'fa-paper-plane-o', 'fa-paper-plane-o',
