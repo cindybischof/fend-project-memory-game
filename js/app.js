@@ -132,9 +132,6 @@ function starRating() {
   } else if (moves === 15) {
     two.style.display = 'none';
     console.log('moves = 15')
-  } else if (moves === 20) {
-    one.style.display = 'none';
-    console.log('moves = 20')
   }
 }
 
