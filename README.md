@@ -1,10 +1,10 @@
-**:sparkles: # Memory Game Project :sparkles:**
+# **:sparkles: Memory Game Project :sparkles:**
 This is a classic memory game that started with Udacity course code and was created by a woman learning to code.
 
 ## Table of Contents
 
 * [Installation](#installation)
-* [Required Dependences] (#required)
+* [Required Dependences](#required)
 * [How to Play](#how)
 * [Contributing](#contributing)
 
