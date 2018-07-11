@@ -10,7 +10,7 @@ This is a classic memory game that started with Udacity course code. The game ke
 
 ## Installation
 This web app will run on any browser. Clone or download the GitHub repository using the green button on the upper right.
-![GitHub Screenshot](/images/githubcloneordownload.png) Format: ![Alt Text](Image of GitHub 'Clone or download' Button)
+![GitHub Screenshot](/images/githubcloneordownload.png)
 
 ## Required Dependences
 Font Awesome is a required dependence. A link to the stylesheet is included in the HTML file.
