@@ -236,6 +236,11 @@ yesButton.addEventListener('click', function(e) {
   milliseconds=0;
   gameStopwatch();
   openCards = [];
+  //adds stars back to star rating
+  let stars = document.querySelectorAll('.fa-star');
+ stars.forEach(function(element) {
+     element.style.display = 'inline-block';
+ })
   console.log('Reinitiate game');
 });
 
