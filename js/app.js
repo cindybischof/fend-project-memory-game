@@ -74,7 +74,7 @@ let milliseconds = 0;
 //variable to track matched cards to evaluate if game has been won
 let matched = 0;
 //need 8 pairs to win the gameStopwatch
-const winningPairs = 8;
+const winningPairs = 1;
 //selects modal window
 const modal = document.querySelector('.modal');
 //selects the yes button
@@ -209,7 +209,7 @@ function finalStats() {
   officialMoves.innerHTML = `Moves: ${moves}`;
 
   function starCount() {
-    findStars = document.querySelectorAll('.stars li');
+    findStars = document.querySelectorAll('.fa-star');
     finalStars = 0;
     for (findStar of findStars) {
       if (findStar.style.display !== 'none') {
