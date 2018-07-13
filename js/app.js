@@ -90,6 +90,11 @@ var interval;
    allCards.forEach(function(card) {
      card.classList.remove('open', 'show', 'match');
    });
+   //adds stars back to star rating
+   let stars = document.querySelectorAll('.fa-star');
+  stars.forEach(function(element) {
+      element.style.display = 'inline-block';
+  })
    initiateGame();
    console.log('Reinitiate game');
    //resets # of moves when reset button is clicked
