@@ -74,7 +74,7 @@ let milliseconds = 0;
 //variable to track matched cards to evaluate if game has been won
 let matched = 0;
 //need 8 pairs to win the gameStopwatch
-const winningPairs = 1;
+const winningPairs = 8;
 //selects modal window
 const modal = document.querySelector('.modal');
 //selects the yes button
@@ -171,15 +171,6 @@ deck.addEventListener('click', event => {
                openCards = [];
                //Adds 1 to matched variable for each pair of matched cards
                matched++;
-               if (matched === winningPairs) {
-                 console.log("Game over!");
-                 moves += 1;
-                 clearInterval(interval);
-                 //displays modal Window
-                 modal.style.display = 'block';
-                 //writes final game stats to the modal window
-                 finalStats();
-               }
            } else {
           //if it's not a match, hide the cards again
            setTimeout(function() {
@@ -191,6 +182,14 @@ deck.addEventListener('click', event => {
          }
          moves += 1;
          movesCounter.innerText = moves;
+         if (matched === winningPairs) {
+           console.log("Game over!");
+           clearInterval(interval);
+           //displays modal Window
+           modal.style.display = 'block';
+           //writes final game stats to the modal window
+           finalStats();
+         }
        }
       starRating();
      }
